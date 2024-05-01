@@ -1,8 +1,8 @@
 //Container
-const gridContainer = document.querySelector(".gridContainer");
+const container = document.querySelector("container");
 //Grids
 function createGrids(noOfGrids) {
 	for (let i = 0; i < noOfGrids; i++) {
-		gridContainer.appendChild(document.createElement("div"))
+		container.appendChild(document.createElement("div"));
 	}
 }
