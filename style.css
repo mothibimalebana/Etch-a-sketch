@@ -35,3 +35,8 @@ header {
 	align-items: center;
 	width: 560px;
 }
+
+footer {
+	display: flex;
+	margin-top: auto;
+}
