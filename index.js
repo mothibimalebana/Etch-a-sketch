@@ -1,22 +1,22 @@
 const gridContainer = document.querySelector(".gridContainer");
 const gridDimensionsBtn = document.getElementById("gridDimensionsBtn");
-
-//Defualt Grid Dimensions
-let gridDimensions = 16
-gridContainer.style.gridTemplateRows = `repeat(${gridDimensions}, 1fr)`;
-gridContainer.style.gridTemplateColumns = `repeat(${gridDimensions}, 1fr)`;
-
-//Allow user to change dimensions
-gridDimensionsBtn.addEventListener("click", () => {changeGridDimensions()})
-
-function getGridDimensions() {
-	userInput = prompt("Enter a number between 2-100", "16");
-	gridDimensions = parseInt(userInput);
-
-	return gridDimensions
+let gridDimensions = 16;
+function setGridDimensions(gridDimensions) {
+	for(let i = 0; i < gridDimensions; i++){
+		let gridColumn = document.createElement("div");
+		gridColumn.setAttribute("class", "gridItemColumn");
+			for (let j = 1; j <= gridDimensions; j++){
+				let gridRow = document.createElement("div");
+				gridRow.setAttribute("class", "gridItemRow");
+				gridColumn.appendChild(gridRow);
+			}
+		gridContainer.appendChild(gridColumn);
+	}
 }
-function changeGridDimensions() {
-getGridDimensions();
-gridContainer.style.gridTemplateRows = `repeat(${gridDimensions}, 1fr)`;
-gridContainer.style.gridTemplateColumns = `repeat(${gridDimensions}, 1fr)`;
+function askUserInput() {
+	askUserInput = prompt("Input a number between 2-100", "16");
+	gridDimensions = parseInt(askUserInput);
+
+	setGridDimensions(gridDimensions);
 }
+gridDimensionsBtn.addEventListener("click", () => {askUserInput()} )
