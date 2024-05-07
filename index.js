@@ -11,6 +11,7 @@ function setGridDimensions(gridDimensions) {
 			for (let j = 0; j < gridDimensions; j++){
 				let gridRow = document.createElement("div");
 				gridRow.setAttribute("class", "gridItem gridItemRow");
+
 				//change color on hover
 				gridRow.addEventListener("mouseover", () => {
 					gridRow.style.backgroundColor = "black";
@@ -21,10 +22,18 @@ function setGridDimensions(gridDimensions) {
 	}
 }
 function askUserInput() {
-	askUserInput = prompt("Input a number between 2-100", "16");
-	gridDimensions = parseInt(askUserInput);
+	askUserInput = prompt("Input a number between 2-100", "16")
+	gridDimensions = parseInt(askUserInput)
+	validateUserInput(gridDimensions)
+}
 
-	setGridDimensions(gridDimensions);
+function validateUserInput(gridDimensions) {
+	if (gridDimensions >=2 && gridDimensions <= 100){
+		setGridDimensions(gridDimensions);
+	}
+	else {
+		alert("input a number between 2 and 100");
+	}
 }
 function changeDivColor () {
 	touc
